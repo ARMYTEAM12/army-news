@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="description" content="김도훈 중령의 육군뉴스 — 육군·국방 언론 보도와 블로그·SNS 화제를 매시간 모아 보는 페이지">
-<meta name="theme-color" content="#46562a">
+<meta name="theme-color" content="#2b3320">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icon-180.png">
@@ -18,7 +18,7 @@ img{max-width:100%}
 </style>
 <title>김도훈 중령의 육군뉴스</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@700;900&family=Noto+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Serif+KR:wght@700;900&family=Noto+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
 <style>
 /* Layout: 육군 뉴스 게시판 — 상단 제호와 갱신 DTG, 분야 탭, 오늘의 핵심 3건, 카드형 기사 목록, 카톡 요약 패널 */
 :root{
@@ -144,6 +144,50 @@ aside a:hover{text-decoration:underline}
 #savedList .del{font-size:12px;color:var(--muted);font-weight:400;margin-top:2px}
 .item .sub{font-size:.92em;color:var(--ink);opacity:.85;margin:0 0 4px}
 @media (prefers-reduced-motion:no-preference){.item{transition:border-color .15s}}
+
+/* ── 국방 테마: 올리브드랩·카키, 부대 현판형 제호, FLASH 속보 표지, 작전지도 격자 ── */
+:root{--bg:#e9ebe1;--panel:#f7f8f2;--ink:#1c2116;--muted:#5a6350;--line:#c9cfbb;--olive:#4b5320;--olive-soft:#dfe4cc;
+  --alert:#a3201a;--alert-soft:#f3dcd6;--on-alert:#ffffff;--hq:#2b3320;--hq-ink:#ece6cf;--khaki:#bba878;--grid:rgba(75,83,32,.07);
+  --f-display:"Black Han Sans","Noto Sans KR",sans-serif}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#10140d;--panel:#181e14;--ink:#e3e7d8;--muted:#9aa58b;--line:#2d3626;
+  --olive:#a8bb72;--olive-soft:#232c1b;--alert:#ff8f84;--alert-soft:#3c1f1b;--on-alert:#1a0f0d;--hq:#1d2516;--hq-ink:#e6dfc4;--khaki:#a8966a;--grid:rgba(168,187,114,.05);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#10140d;--panel:#181e14;--ink:#e3e7d8;--muted:#9aa58b;--line:#2d3626;
+  --olive:#a8bb72;--olive-soft:#232c1b;--alert:#ff8f84;--alert-soft:#3c1f1b;--on-alert:#1a0f0d;--hq:#1d2516;--hq-ink:#e6dfc4;--khaki:#a8966a;--grid:rgba(168,187,114,.05);color-scheme:dark}
+body{background-color:var(--bg);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:44px 44px}
+header{background:var(--hq);color:var(--hq-ink);border:0;border-bottom:4px solid var(--khaki);border-radius:3px;padding-inline:18px}
+.cls{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font:500 11px/1 var(--f-mono);letter-spacing:.18em;color:var(--khaki);padding-block:9px;border-bottom:1px solid rgba(187,168,120,.3)}
+.mast-l{gap:16px}
+.insig{flex:none;width:46px;height:46px}
+.insig{width:78px;height:39px}.insig .pt{fill:var(--khaki)}.insig .ctr{fill:var(--hq)}.insig .dot{fill:var(--khaki)}
+h1 .by{color:var(--khaki);letter-spacing:.12em}
+h1 .nm{font-family:var(--f-display);font-weight:400;font-size:clamp(38px,7vw,54px);letter-spacing:.02em;color:var(--hq-ink)}
+.mast-d{border-left-color:rgba(236,230,207,.25);color:rgba(236,230,207,.75)}
+.mast-d b{color:var(--hq-ink)}
+header .btn{background:transparent;border-color:rgba(236,230,207,.35);color:var(--hq-ink)}
+header .btn:hover{border-color:var(--khaki)}
+header .btn.kakao{background:var(--kakao);border-color:var(--kakao);color:var(--kakao-ink)}
+.meta-strip{border-top:1px dashed rgba(187,168,120,.4);color:rgba(236,230,207,.7)}
+.meta-strip .dtg{color:var(--hq-ink)}
+header .btn.mini{color:var(--khaki);border-color:var(--khaki);background:transparent}
+header .btn.mini:disabled{color:rgba(236,230,207,.5);border-color:rgba(236,230,207,.25)}
+.btn,.tab,#q,.item,aside section,.wx,.hot3,.sheet,#brief,.wx-sel select,.opts select{border-radius:3px}
+.tab{font-weight:700}
+.tab[aria-pressed="true"]{background:var(--olive);border-color:var(--olive);color:var(--panel)}
+.tab[aria-pressed="true"] .n{color:var(--panel)}
+.wx{background:var(--panel)}
+.wx::before{content:"기상";font:700 11px var(--f-mono);letter-spacing:.12em;color:var(--olive)}
+.hot3{background:var(--panel);border:1px solid var(--alert);padding:0;gap:0;align-items:stretch}
+.hot3 h2{background:var(--alert);color:var(--on-alert);padding:10px 14px;line-height:1.3;flex-direction:column;align-items:flex-start;justify-content:center;gap:2px;letter-spacing:.04em}
+.hot3 h2::before{content:"FLASH";width:auto;height:auto;border-radius:0;background:none;font:700 10.5px var(--f-mono);letter-spacing:.2em;opacity:.85}
+.hot3 ol{padding:10px 14px}
+@media (max-width:560px){.hot3 h2{flex-direction:row;align-items:center;flex-basis:100%;box-sizing:border-box;gap:8px}}
+.cls span:first-child{letter-spacing:.06em}
+@media (max-width:600px){.mast-l{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;column-gap:12px;row-gap:8px}.mast-d{grid-column:1/-1}.insig{width:64px;height:32px}}
+.tag{border-radius:2px;letter-spacing:.02em}
+.day{color:var(--olive);font-weight:500}
+.day::before{content:"■";font-size:10px}
+aside section{padding-top:0;overflow:hidden}
+aside h2{background:var(--olive-soft);color:var(--olive);margin:0 -18px 12px;padding:8px 18px;font-family:var(--f-mono);letter-spacing:.1em}
 </style>
 </head>
 <body>
@@ -151,9 +195,10 @@ aside a:hover{text-decoration:underline}
 
 <div class="wrap">
   <header>
+    <div class="cls"><span>대한민국 육군 · 국방 뉴스 브리핑</span><span>ARMY NEWS</span></div>
     <div class="mast">
       <div class="mast-l">
-        <h1><span class="by">김도훈 중령의</span><span class="nm">육군뉴스</span></h1>
+        <svg class="insig" viewBox="0 0 640 320" aria-label="중령 계급" role="img"><ellipse cx="165" cy="83.0" rx="58.8" ry="77.0" transform="rotate(0 165 160)" class="pt"/><ellipse cx="165" cy="83.0" rx="58.8" ry="77.0" transform="rotate(72 165 160)" class="pt"/><ellipse cx="165" cy="83.0" rx="58.8" ry="77.0" transform="rotate(144 165 160)" class="pt"/><ellipse cx="165" cy="83.0" rx="58.8" ry="77.0" transform="rotate(216 165 160)" class="pt"/><ellipse cx="165" cy="83.0" rx="58.8" ry="77.0" transform="rotate(288 165 160)" class="pt"/><circle cx="165" cy="160" r="42.0" class="ctr"/><circle cx="165" cy="160" r="16.8" class="dot"/><ellipse cx="475" cy="83.0" rx="58.8" ry="77.0" transform="rotate(0 475 160)" class="pt"/><ellipse cx="475" cy="83.0" rx="58.8" ry="77.0" transform="rotate(72 475 160)" class="pt"/><ellipse cx="475" cy="83.0" rx="58.8" ry="77.0" transform="rotate(144 475 160)" class="pt"/><ellipse cx="475" cy="83.0" rx="58.8" ry="77.0" transform="rotate(216 475 160)" class="pt"/><ellipse cx="475" cy="83.0" rx="58.8" ry="77.0" transform="rotate(288 475 160)" class="pt"/><circle cx="475" cy="160" r="42.0" class="ctr"/><circle cx="475" cy="160" r="16.8" class="dot"/></svg><h1><span class="by">김도훈 중령의</span><span class="nm">육군뉴스</span></h1>
         <div class="mast-d"><b id="today">—</b><span>육군·국방 언론 보도와 블로그·SNS 화제 모음</span></div>
       </div>
       <div class="tools">

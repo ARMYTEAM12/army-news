@@ -2,7 +2,7 @@
 
 로그인 없이 누구나 볼 수 있는 웹사이트로 올리는 방법입니다. 모두 무료이고, 한 번만 설정하면 매시간 자동으로 갱신됩니다.
 
-- 주소: `https://armyteam12.github.io/army-news/`  (GitHub 아이디: ARMYTEAM12)
+- 주소: `https://armyteam12.github.io/army-news1/`  (GitHub 아이디: ARMYTEAM12)
 - 갱신: 한국시간 06:50 ~ 23:50 매시간 (GitHub 사정에 따라 5~20분 늦을 수 있음)
 - 휴대폰: 주소를 열고 **홈 화면에 추가**를 하면 앱처럼 아이콘으로 열립니다
 
@@ -19,7 +19,7 @@
 ## 1단계. GitHub 저장소 만들기
 
 1. github.com에 로그인 → 오른쪽 위 **＋** → **New repository**
-2. Repository name: `army-news`
+2. Repository name: `army-news1`
 3. **Public** 선택 (무료로 웹사이트를 열려면 공개여야 합니다)
 4. **Create repository**
 
